@@ -1,1 +1,1 @@
-export { shortcut, Shift, Control, Alt, Command, Tab } from './shortcut';
+export { useShortcut, Shift, Control, Alt, Command, Tab } from './shortcut';

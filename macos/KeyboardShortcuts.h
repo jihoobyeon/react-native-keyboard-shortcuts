@@ -1,5 +1,5 @@
 #import <KeyboardShortcutsSpec/KeyboardShortcutsSpec.h>
 
-@interface KeyboardShortcuts : NSObject <NativeKeyboardShortcutsSpec>
+@interface KeyboardShortcuts : NativeKeyboardShortcutsSpecBase <NativeKeyboardShortcutsSpec>
 
 @end

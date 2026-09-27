@@ -1,11 +1,16 @@
 import KeyboardShortcuts from './NativeKeyboardShortcuts';
+import { useEffect } from 'react';
 
-export function shortcut(keys: string[], callback: () => void): void {
-	return KeyboardShortcuts.shortcut(keys, callback);
+export function useShortcut(keys: string[], callback: () => void): void {
+	const callbacks = new Map<number, () => void>();
+	KeyboardShortcuts.onShortcut(({ id }) => { callbacks.get(id)?.(); });
+
+	useEffect(() => {
+		const id = KeyboardShortcuts.addShortcut(keys);
+		callbacks.set(id, callback);
+		return () => KeyboardShortcuts.removeShortcut(id);
+	}, [keys, callback]);
 }
 
-export const Shift: string = KeyboardShortcuts.Shift;
-export const Control: string = KeyboardShortcuts.Control;
-export const Alt: string = KeyboardShortcuts.Alt;
-export const Command: string = KeyboardShortcuts.Command;
-export const Tab: string = KeyboardShortcuts.Tab;
+const { Shift, Control, Alt, Command, Tab } = KeyboardShortcuts.getConstants();
+export { Shift, Control, Alt, Command, Tab };
