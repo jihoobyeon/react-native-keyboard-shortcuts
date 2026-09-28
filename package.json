@@ -2,34 +2,17 @@
   "name": "react-native-keyboard-shortcuts",
   "version": "1.0.0",
   "description": "custom keyboard shortcut module for React Native(desktop)",
-  "main": "./lib/module/index.js",
-  "types": "./lib/typescript/src/index.d.ts",
-  "exports": {
-    ".": {
-      "react-native-keyboard-shortcuts-source": "./src/index.ts",
-      "types": "./lib/typescript/src/index.d.ts",
-      "default": "./lib/module/index.js"
-    },
-    "./package.json": "./package.json"
-  },
+  "main": "./src/index.ts",
   "files": [
     "src",
-    "lib",
     "macos",
-    "cpp",
     "*.podspec",
-    "react-native.config.js",
     "!macos/build",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
     "!**/.*"
   ],
-  "scripts": {
-    "prepare": "bob build",
-    "typecheck": "tsc",
-    "release": "release-it --only-version"
-  },
   "keywords": [
     "react-native",
     "macos",
@@ -49,18 +32,13 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^21.2.0",
     "@react-native/babel-preset": "0.86.2",
-    "@release-it/conventional-changelog": "^12.0.0",
     "@types/react": "^19.2.0",
     "commitlint": "^21.2.1",
     "del-cli": "^7.0.0",
-    "lefthook": "^2.1.10",
     "react": "19.2.3",
     "react-native": "0.81.6",
-    "react-native-builder-bob": "^0.43.1",
     "react-native-macos": "0.81.9",
-    "release-it": "^21.0.1",
     "turbo": "^2.10.8",
     "typescript": "^6.0.3"
   },
@@ -70,60 +48,14 @@
     "react-native-macos": "*"
   },
   "packageManager": "yarn@1.22.22",
-  "react-native-builder-bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      [
-        "module",
-        {
-          "esm": true
-        }
-      ],
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
-    ]
-  },
   "codegenConfig": {
     "name": "KeyboardShortcutsSpec",
     "type": "modules",
     "jsSrcsDir": "src"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": {
-          "name": "angular"
-        }
-      }
-    }
-  },
   "create-react-native-library": {
     "type": "turbo-module",
     "languages": "kotlin-objc",
-    "tools": [
-      "lefthook",
-      "release-it"
-    ],
     "version": "0.63.1"
   }
 }
