@@ -8,10 +8,12 @@ export type Constants = {
 	Tab: string;
 };
 
+export type ShortcutEvent = { id: number; };
+
 export interface Spec extends TurboModule {
 	addShortcut(keys: string[]): number;
 	removeShortcut(id: number): void;
-	readonly onShortcut: CodegenTypes.EventEmitter<{ id: number }>;
+	readonly onShortcut: CodegenTypes.EventEmitter<ShortcutEvent>;
 	getConstants(): Constants;
 }
 
