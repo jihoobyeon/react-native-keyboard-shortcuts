@@ -1,7 +1,7 @@
 {
   "name": "react-native-keyboard-shortcuts",
-  "version": "1.0.0",
-  "description": "custom keyboard shortcut module for React Native(desktop)",
+  "version": "1.1.0",
+  "description": "custom keyboard shortcut module for React Native(Desktop)",
   "main": "./src/index.ts",
   "files": [
     "src",
