@@ -1,12 +1,17 @@
 # react-native-keyboard-shortcuts
 
-custom keyboard shortcut module for React Native(desktop)Desktop)Keyboard
+custom keyboard shortcut module for React Native(Desktop)Keyboard
 
 ## Installation
 
 
 ```sh
-npm install react-native-keyboard-shortcuts
+yarn add react-native-keyboard-shortcuts
+
+// Windows
+npx react-native autolink-windows
+// macOS
+npx pod-install macos
 ```
 
 
@@ -14,13 +19,14 @@ npm install react-native-keyboard-shortcuts
 
 
 ```js
-import { multiply } from 'react-native-keyboard-shortcuts';
+import { Control, useShortcut } from 'react-native-keyboard-shortcuts';
 
-// ...
-
-const result = multiply(3, 7);
+export default function App() {
+	useShortcut([Control, 'a'], Alert.alert('TEST', 'This is a test.'));
+	return <View />;
+};
 ```
-
+We have 5 special keys: Shift, Control, Alt, Tab, and Command(which is 'Win' key in Windows)
 
 ## Contributing
 
